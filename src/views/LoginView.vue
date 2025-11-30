@@ -11,7 +11,7 @@
       <form @submit.prevent="handleLogin" class="form">
 
         <div class="field">
-          <label>Email</label>
+          <label class="field_desc">Email</label>
           <input
               v-model="email"
               type="email"
@@ -21,7 +21,7 @@
         </div>
 
         <div class="field">
-          <label>Password</label>
+          <label class="field_desc">Password</label>
           <div class="password-wrap">
             <input
                 v-model="password"
@@ -29,9 +29,12 @@
                 placeholder="Enter your password"
                 required
             >
-            <span class="eye" @click="showPassword = !showPassword">
-              {{ showPassword ? '🙈' : '👁️' }}
-            </span>
+            <img
+                :src="showPassword ? '@/assets/view.png' : '@/assets/hide.png'"
+                class="eye"
+                @click="showPassword = !showPassword"
+            />
+
           </div>
         </div>
 
@@ -127,6 +130,11 @@ const handleLogin = async () => {
 
 .field {
   text-align: left;
+}
+
+.field_desc {
+  color: #4A00AF;
+  font-size: 18px;
 }
 
 label {
