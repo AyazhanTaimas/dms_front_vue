@@ -73,10 +73,8 @@ const handleLogin = async () => {
       password: password.value
     })
 
-    // сохраняем токен
     localStorage.setItem('token', res.data.token)
 
-    // редирект
     router.push('/dashboard')
 
   } catch (e) {
